@@ -28,7 +28,8 @@ def is_valid(num: int, prev: List[int]) -> bool:
 
 def find_continguous(seq: List[int], target: int) -> Tuple[int, int]:
     """
-    Find a contiguous set of number that equal our target
+    Find a contiguous set of number that equal our target and return
+    the smallest and largest of the range.
     """
     for length in range(2, len(seq)):
         for idx in range(0, len(seq)-length):
