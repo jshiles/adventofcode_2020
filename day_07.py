@@ -6,7 +6,6 @@ jshiles
 
 import networkx as nx
 import re
-from typing import List
 from adventofcode import utils
 
 
