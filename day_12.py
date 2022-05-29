@@ -47,13 +47,6 @@ def main():
 
     # P1: after following the directions compute the taxi cab (manhatten)
     # distance.
-    test_filename: str = utils.test_input_location(day="12")
-    test_directions = get_input(test_filename)
-    assert (
-        follow_directions(test_directions).manhattan(day_12.Location(0, 0))
-        == 25
-    )
-
     filename: str = utils.input_location(day="12")
     directions = get_input(filename)
     dist = follow_directions(directions).manhattan(day_12.Location(0, 0))
@@ -61,14 +54,6 @@ def main():
 
     # P2: after following the waypoint based directions compute the taxi cab
     # (manhatten) distance.
-    test_filename: str = utils.test_input_location(day="12")
-    test_directions = get_input(test_filename)
-    assert (
-        follow_waypoint_based_directions(test_directions).manhattan(
-            day_12.Location(0, 0)
-        )
-        == 286
-    )
     filename: str = utils.input_location(day="12")
     directions = get_input(filename)
     dist = follow_waypoint_based_directions(directions).manhattan(
