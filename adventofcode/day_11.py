@@ -25,7 +25,10 @@ class SeatPlan:
         y: int = 0,
         max_depth: Optional[int] = None,
     ) -> str:
-        """Recurse from (row, col) in x, y increments."""
+        """
+        Recurse from (row, col) in x, y increments until non-isle or end
+        of seats.
+        """
         if not (
             (0 <= row + x < len(self.seats))
             and (0 <= col + y < len(self.seats[row]))

@@ -2,10 +2,8 @@
 day 11 tests
 """
 import os
-from pathlib import Path
 from adventofcode import utils, day_11
 
-# TEST_DATA_DIR = Path(__file__).resolve().parent / 'data'
 
 def test_empty_to_occupied():
     test_filename: str = utils.test_input_location(day="11")
@@ -15,17 +13,23 @@ def test_empty_to_occupied():
 
 
 def test_adjacent_seats():
-    pass
+    """test adjacent check with depth of 1"""
+    test_filename_1 = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'day_11_1.txt')
+    test_seat_plan = day_11.parse_input(test_filename_1)
+    assert test_seat_plan.seats[4][3] == 'L'
+    assert test_seat_plan.adj_increment_recursive(4, 3, -1, -1) == '#'
+    assert test_seat_plan.adj_increment_recursive(4, 3, -1, 0) == 'L'
+    assert test_seat_plan.adjacent(4, 3, max_depth=1) == (2, 0)
 
 
 def test_adjacent_seats_extended():
+    """test adjacent check with unlimited depth"""
     test_filename_1 = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'day_11_1.txt')
     test_seat_plan = day_11.parse_input(test_filename_1)
     assert test_seat_plan.seats[4][3] == 'L'
     assert test_seat_plan.adj_increment_recursive(4, 3, -1, -1) == '#'
     assert test_seat_plan.adj_increment_recursive(4, 3, -1, 0) == 'L'
     assert test_seat_plan.adjacent(4, 3) == (7, 1)
-    assert test_seat_plan.adjacent(4, 3, max_depth=1) == (2, 0)
 
     test_filename_2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'day_11_2.txt')
     test_seat_plan_2 = day_11.parse_input(test_filename_2)
