@@ -44,11 +44,11 @@ def _recursive_adapter_configs(numbers: tuple) -> int:
     combinations.
 
     Note: I cast the list to a tuple of ints so that I could cache
-    it the function calls, otherwise I compute the same thing over
+    the function calls, otherwise I compute the same thing over
     and over.
-    time on my machine reports:
+    'time' on my machine reports:
         python day_10.py  0.03s user 0.01s system 91% cpu 0.039 total
-    so speed up is very worth it and necessary.
+    so speed up is very worth it and necessary!
     """
     if len(numbers) <= 1:
         return 1
